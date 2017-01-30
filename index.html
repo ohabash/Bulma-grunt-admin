@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sod">
+<head>
+	<base href="/"/>
+	<!-- <base href="/index.html"> -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Omar Habash</title>
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,100,300,700,600' rel='stylesheet' type='text/css'>
+	<link href="assets/dist/css/style.css" rel="stylesheet">
+	<!-- <script src="http://localhost:9000/livereload.js"></script> -->
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body ng-controller="menuCtrl">
+
+	
+
+	
+<div id="pusher" class="columns is-gapless mb0" ng-class="{'menuClosed': isActive}">
+	<div ng-include="'partials/aside.html'" class="column p0 aside-main-contain"></div>
+	<div class="main-container column p2em" ng-view></div>
+	<!-- <button class="button" ng-click="activeButton()" type="button">Click Me to Toggle Class</button>  -->
+</div>
+
+
+
+
+
+
+
+	
+
+
+    <!-- libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- angularjs -->
+    <script src="assets/js/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-animate.js"></script>
+    <script src="assets/js/ng-app.js"></script>
+    <script src="assets/js/ng-controller.js"></script>
+    <!-- <script src="assets/js/pusher.js"></script> -->
+    <script src="assets/js/main.js"></script>
+
+    <script src="assets/js/modernizr.custom.js"></script>
+
+
+    <!-- localdev -->
+    <!-- <script src='http://localhost:3000/socket.io/socket.io.js'></script> -->
+	<!-- <script src='http://localhost:3001/browser-sync-client.min.js'></script> -->
+
+  </body>
+</html>

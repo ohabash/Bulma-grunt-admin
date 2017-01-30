@@ -1,0 +1,28 @@
+@mixin newFont($fontName) {
+	@font-face {
+	    src: url('../fonts/$fontName/$fontName.eot');
+	    src: url('../fonts/$fontName/$fontName.eot') format('embedded-opentype'),
+	         url('../fonts/$fontName/$fontName.woff2') format('woff2'),
+	         url('../fonts/$fontName/$fontName.woff') format('woff'),
+	         url('../fonts/$fontName/$fontName.ttf') format('truetype'),
+	         url('../fonts/$fontName/$fontName.svg#$fontName') format('svg');
+	}
+}
+
+//================ ChronicleDisplay-Bold ================//
+@include newFont(ChronicleDisplay-Bold);
+.ChronicleDisplay-Bold, .font1 {
+	font-family: 'ChronicleDisplay-Bold',"Big Caslon", "Book Antiqua", "Palatino Linotype",TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+}
+
+//================ ChronicleDisplay-Roman ================//
+@include newFont(ChronicleDisplay-Roman);
+.ChronicleDisplay-Roman, .font2 {
+	font-family: 'ChronicleDisplay-Roman',"Big Caslon", "Book Antiqua", "Palatino Linotype",TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+}
+
+
+
+.opens{
+	font-family: 'Open Sans', Arial, "Helvetica Neue", Helvetica, sans-serif;
+}

@@ -1,0 +1,50 @@
+$colors:
+	"dark" #3E3E3E,
+	"darker" #3E3E3E,
+	"light" #ECECF0,
+	"green" #00A87B,
+	"yellow" #FFBB3B,
+	"red" #FF4633,
+	"white" #FFFFFF,
+	"black" #000000,
+	"blue" #436FB6
+;
+
+// basically repeat above
+$dark: #3E3E3E;
+$darker: #3E3E3E;
+$light: #ECECF0;
+$green: #00A87B;
+$yellow: #FFBB3B;
+$red: #FF4633;
+$white: #FFFFFF;
+$black: #000000;
+$blue: #436FB6;
+
+@each $color in $colors{
+	// .btn-color
+	.btn-#{nth($color, 1)}{
+	    background: nth($color, 2);
+	    color: #fff;
+	}
+	// .color / color
+	.#{nth($color, 1)}, #{nth($color, 1)}{
+	    color: nth($color, 2) !important;
+	    a{
+	        color: nth($color, 2);
+	    }
+	}
+	// .color-bg
+	.#{nth($color, 1)}-bg {
+		background: nth($color, 2);
+	}
+}
+
+
+
+
+
+
+
+
+

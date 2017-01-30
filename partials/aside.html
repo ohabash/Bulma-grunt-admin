@@ -1,0 +1,31 @@
+<div id="aside">
+  
+  <div class="logo-contain">
+    <img src="assets/img/logo.svg" class="img-responsive"></img>
+  </div>
+
+  <nav>
+    <h3>browse</h3>
+    <ul class="sidenav" ng-controller="ListenController">
+      <li class="nav-item about"><a class="nav-link" ng-class="{ active0: PAGE('/') }"  href="/">about</a></li>
+      <li class="nav-item contact"><a class="nav-link" ng-class="{ active0: PAGE('/contact') }"  href="/contact">contact</a></li>
+      <li class="nav-item contact1"><a class="nav-link" ng-class="{ active0: PAGE('/contact1') }"  href="/contact1">404</a></li>
+    </ul>
+
+  </nav>
+
+  <div class="aside-bottom">
+    <!-- Aside Player -->
+    <div ng-include="'partials/aside_player.html'" class="h1001"></div>
+    <!-- icon menu -->
+    <ul class="icon-menu">
+      <li ng-click="toggleMenu()"><i class="fa fa-outdent" aria-hidden="true"></i></li>
+      <li><i class="fa fa-user" aria-hidden="true"></i></li>
+      <li><i class="fa fa-sliders" aria-hidden="true"></i></li>
+      <li><i class="fa fa-star" aria-hidden="true"></i></li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="menuClose-button" ng-click="toggleMenu()"><i class="fa fa-indent" aria-hidden="true"></i></div>

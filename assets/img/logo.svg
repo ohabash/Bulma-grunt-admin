@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1771.5 -2449 157 61.143">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+        font-family: ChronicleDeck-Roman, Chronicle Deck;
+      }
+
+      .cls-1 {
+        font-size: 35px;
+      }
+
+      .cls-2 {
+        font-size: 18px;
+      }
+    </style>
+  </defs>
+  <g id="Group_6" data-name="Group 6" transform="translate(-29.5 235)">
+    <text id="SUCCESS" class="cls-1" transform="translate(-1742 -2650)"><tspan x="0" y="0">SUCCESS</tspan></text>
+    <text id="ON_DEMAND" data-name="ON DEMAND" class="cls-2" transform="translate(-1721.886 -2626.857)"><tspan x="0" y="0">ON DEMAND</tspan></text>
+  </g>
+</svg>

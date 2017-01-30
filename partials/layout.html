@@ -1,0 +1,20 @@
+<div id="st-container" class="st-container">
+
+  <div class="st-pusher">
+    
+    <div ng-include="'partials/aside.html'"></div>
+
+    <div class="st-content"><!-- this is the wrapper for the content -->
+      <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+          <div id="st-trigger-effects" class="column">
+            <button data-effect="st-effect-3">Push</button>
+          </div>
+          <div class="view" ng-view></div>
+      </div><!-- /st-content-inner -->
+    </div><!-- /st-content -->
+
+  </div><!-- /st-pusher -->
+</div><!-- /st-container -->
+
+
+
