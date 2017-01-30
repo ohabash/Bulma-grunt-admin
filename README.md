@@ -1,4 +1,4 @@
-# angularjs-bootstrap4-grunt
+# angularjs-bootstrap4-grunt-bulma
 
 This is my favorite frontend environment. It's a great start for most simple websites. Includes the following:
 
