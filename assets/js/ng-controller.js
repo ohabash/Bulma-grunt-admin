@@ -1,4 +1,4 @@
-var app = angular.module('sod');
+var app = angular.module('list');
 
 
 // ListenContrller

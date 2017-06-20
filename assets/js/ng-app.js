@@ -1,4 +1,4 @@
-angular.module('sod',["ngRoute", "ngAnimate"])
+angular.module('list',["ngRoute", "ngAnimate"])
 	.config(function ($routeProvider, $locationProvider){
 		$routeProvider
 			.when('/', {

@@ -1,5 +1,5 @@
 %p1em {
-	padding: 1em;
+  padding: 1em;
 }
 
 .p0{padding: 0 !important;}
@@ -8,13 +8,19 @@
 .m1em{margin: 1em !important;}
 .mb0{margin-bottom: 0 !important;}
 .m2em{margin: 2em !important;}
+.p5em{padding: 0.5em !important;}
 .p1em{padding: 1em !important;}
 .p2em{padding: 2em !important;}
 .p3em{padding: 3em !important;}
 .p4em{padding: 4em !important;}
 .justify{text-align: justify;}
 .h100{height: 100%;}
-
+.db{
+  display: block !important;
+}
+.w100{
+  width: 100%;
+}
 .pi{position: inherit;}
 .pr{position: relative;}
 
@@ -30,17 +36,218 @@ a, li, img, div, span, input, textarea, button{
 }
 
 ul.inline{
-	list-style: none;
-	padding: 0;
-	li{
-		// float: left;
-		display: inline-block;
-	}
+  list-style: none;
+  padding: 0;
+  li{
+    // float: left;
+    display: inline-block;
+  }
 }
 
+.ox{
+  overflow-x: hidden !important;
+}
+
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+.cursor { cursor: pointer !important; cursor: hand !important; }
+
+.disabled{
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
+}
+.disable{
+  pointer-events: none;
+  cursor: default;
+}
+
+// personalize Bulma
+p.is-success {
+  position: relative;
+  &:after{
+    font-family: FontAwesome;
+    content: "\f058";
+    color: $green;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.3em 0.8em;
+  }
+}
+p.is-fail {
+  position: relative;
+  &:after{
+    font-family: FontAwesome;
+    content: "\f057";
+    color: $red;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.3em 0.8em;
+  }
+}
+
+
+
+
+
+// from bootstrap
+.list-inline {
+    padding-left: 0;
+    margin-left: -5px;
+    list-style: none;
+    li {
+        display: inline-block;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+}
+
+.breadcrumb {
+  // padding: 8px 15px;
+  // margin-bottom: 20px;
+  list-style: none;
+  // background-color: #f5f5f5;
+  border-radius: 4px;
+}
+.breadcrumb > li {
+  display: inline-block;
+  a {
+    opacity: 0.8;
+    &:hover{
+      opacity: 1
+    }
+  }
+}
+.breadcrumb > li + li:before {
+  padding: 0 5px;
+  // color: #ccc;
+  content: "/\00a0";
+  content: "|";
+  margin-left: -1em;
+  font-weight: bolder;
+  top: -1px;
+  position: relative;
+}
+.breadcrumb > .active {
+  font-weight: bold;
+}
+.pull-left{ float: left; }
+.pull-right{ float: right; }
+.clearfix:before,
+.clearfix:after,
+.dl-horizontal dd:before,
+.dl-horizontal dd:after,
+.container:before,
+.container:after,
+.container-fluid:before,
+.container-fluid:after,
+.row:before,
+.row:after,
+.form-horizontal .form-group:before,
+.form-horizontal .form-group:after,
+.btn-toolbar:before,
+.btn-toolbar:after,
+.btn-group-vertical > .btn-group:before,
+.btn-group-vertical > .btn-group:after,
+.nav:before,
+.nav:after,
+.navbar:before,
+.navbar:after,
+.navbar-header:before,
+.navbar-header:after,
+.navbar-collapse:before,
+.navbar-collapse:after,
+.pager:before,
+.pager:after,
+.panel-body:before,
+.panel-body:after,
+.modal-header:before,
+.modal-header:after,
+.modal-footer:before,
+.modal-footer:after {
+  display: table;
+  content: " ";
+}
+.clearfix:after,
+.dl-horizontal dd:after,
+.container:after,
+.container-fluid:after,
+.row:after,
+.form-horizontal .form-group:after,
+.btn-toolbar:after,
+.btn-group-vertical > .btn-group:after,
+.nav:after,
+.navbar:after,
+.navbar-header:after,
+.navbar-collapse:after,
+.pager:after,
+.panel-body:after,
+.modal-header:after,
+.modal-footer:after {
+  clear: both;
+}
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.hide{display: none !important;}
+
+.text-left{text-align: left !important;}
+.text-center{text-align: center !important;}
+.text-right{text-align: right !important;}
+
+
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgba(#fff, 0.6);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: rgba(#fff, 0.6);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: rgba(#fff, 0.6);
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: rgba(#fff, 0.6);
+}
+
+
+.button-center{
+  display: block;
+  text-align: center;
+}
+
+
+
+
+
 .scroll{
-	overflow: auto !important;
+  // overflow: auto !important;
     -webkit-overflow-scrolling: touch !important;
+        overflow-x: hidden !important;
+    overflow-y: auto !important;
 }
 
 
