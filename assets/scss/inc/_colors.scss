@@ -1,25 +1,31 @@
-$colors:
-	"dark" #3E3E3E,
-	"darker" #3E3E3E,
-	"light" #ECECF0,
-	"green" #00A87B,
-	"yellow" #FFBB3B,
-	"red" #FF4633,
-	"white" #FFFFFF,
-	"black" #000000,
-	"blue" #436FB6
-;
-
 // basically repeat above
-$dark: #3E3E3E;
-$darker: #3E3E3E;
-$light: #ECECF0;
+$dark: #333;
+$darker: #333;
+$light: #efefef;
 $green: #00A87B;
 $yellow: #FFBB3B;
 $red: #FF4633;
 $white: #FFFFFF;
 $black: #000000;
-$blue: #436FB6;
+$blue: #2178F4;
+$purple: #460f54;
+$orange: #ed6c24;
+
+
+$colors:
+	"dark" $dark,
+	"darker" $darker,
+	"light" $light,
+	"green" $green,
+	"yellow" $yellow,
+	"red" $red,
+	"white" $white,
+	"black" $black,
+	"blue" $blue,
+	"purple" $purple,
+	"orange" $orange
+;
+
 
 @each $color in $colors{
 	// .btn-color
@@ -45,6 +51,17 @@ $blue: #436FB6;
 
 
 
+
+
+
+
+
+
+
+@mixin grad($deg, $c1, $c2) {
+	background-image: -webkit-linear-gradient($deg, $c1, $c2) !important;
+	background-image: linear-gradient($deg, $c1, $c2) !important;
+}
 
 
 

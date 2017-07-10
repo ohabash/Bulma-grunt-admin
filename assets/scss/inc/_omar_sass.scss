@@ -1,5 +1,5 @@
 %p1em {
-	padding: 1em;
+  padding: 1em;
 }
 
 .p0{padding: 0 !important;}
@@ -30,16 +30,18 @@ a, li, img, div, span, input, textarea, button{
 }
 
 ul.inline{
-	list-style: none;
-	padding: 0;
-	li{
-		// float: left;
-		display: inline-block;
-	}
+  list-style: none;
+  padding: 0;
+  li{
+    // float: left;
+    display: inline-block;
+  }
 }
-
+.hide{
+  display: none !important;
+}
 .scroll{
-	overflow: auto !important;
+  overflow: auto !important;
     -webkit-overflow-scrolling: touch !important;
 }
 
@@ -71,4 +73,10 @@ ul.inline{
     -ms-flex-negative: 1;
     flex-shrink: 1;
     padding: 0.75rem;
+}
+
+[data-toggle=buttons]>.btn input[type=checkbox], [data-toggle=buttons]>.btn input[type=radio], [data-toggle=buttons]>.btn-group>.btn input[type=checkbox], [data-toggle=buttons]>.btn-group>.btn input[type=radio] {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    pointer-events: none;
 }
