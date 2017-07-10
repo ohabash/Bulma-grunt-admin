@@ -14,7 +14,7 @@ you will need `git-cli` `npm` and `grunt before starting`
 
 # Use Instructions
 
-* download this repo `git clone https://github.com/ohabash/angularjs-bootstrap4-grunt.git`
+* download this repo `git clone https://github.com/ohabash/Bulma-grunt-admin.git`
 
 * `cd` to root and `npm install`
 
