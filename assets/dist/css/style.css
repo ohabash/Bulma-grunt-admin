@@ -10067,7 +10067,7 @@ label.panel-block:hover {
 .m2em {
   margin: 2em !important; }
 
-.p1em, #page, #page .container {
+.p1em, .main-container, .main-container .container {
   padding: 1em !important; }
 
 .p2em {
@@ -10331,7 +10331,7 @@ ul.social {
     ul.social li a:hover {
       color: #FF4633; }
 
-#page .container {
+.main-container .container {
   background: #fff; }
 
 header .navbar-menu a {
