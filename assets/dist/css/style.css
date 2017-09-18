@@ -10343,8 +10343,7 @@ header .navbar-menu a {
   transition: all 0.2s ease-in-out; }
   header .navbar-menu a.activeX {
     border-radius: 2em;
-    background: #333;
-    color: #fff; }
+    background: #efefef; }
   header .navbar-menu a.logout {
     display: none !important; }
 

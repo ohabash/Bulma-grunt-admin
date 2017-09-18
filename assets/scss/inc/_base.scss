@@ -64,8 +64,8 @@ header{
 			@include ease(0.2s);
 			&.activeX{
 				border-radius: 2em;
-				background: $dark;
-				color: #fff;
+				background: $light;
+				// color: $green;
 				@extend .disable;
 			}
 			&.logout{

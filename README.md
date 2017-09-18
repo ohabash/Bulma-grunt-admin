@@ -5,7 +5,7 @@ This is my favorite frontend environment. It's a great start for most simple web
  * Bulma.css (css/js)
  * firebase authentication (ready for db use)
  * AngularJS (ngroutes / nganimate / ng-includes)
- * usefull mixins for colors, easing, centering, and more
+ * usefull mixins for colors, easing, centering, animating, and more
  * Grunt Tasks for sass compiling / minifying / watch / BrowserSync (live-reload) / server (localhost)
  * Using BULMA grid framwork to create a sidebar admin layout
 
