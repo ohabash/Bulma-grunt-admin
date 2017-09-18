@@ -2,7 +2,7 @@
 
 This is my favorite frontend environment. It's a great start for most simple websites. Includes the following:
 
- * Bulma.css (css/js)
+ * jQuery
  * firebase authentication (ready for db use)
  * AngularJS (ngroutes / nganimate / ng-includes)
  * usefull mixins for colors, easing, centering, animating, and more
