@@ -1,7 +1,13 @@
 module.exports = function(grunt) {
+  // var urlRewrite = require('grunt-connect-rewrite');
+  var modRewrite = require('connect-modrewrite');
+  // npm install connect-modrewrite --save
+
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
+
 
 
     //watch
@@ -44,12 +50,19 @@ module.exports = function(grunt) {
                 'assets/dist/css/*.css',
                 'assets/js/*.js',
                 '*/*.html',
+                '*/*/*.html',
                 '*.html'
             ]
         },
         options: {
             watchTask: true,
-            server: './'
+            // server: './'
+            server: {
+                baseDir :'./',
+                middleware: [
+                       modRewrite(['!\.html|\.js|\.jpg|\.mp4|\.mp3|\.gif|\.svg\|.css|\.png$ /index.html [L]'])
+                ]
+            }
         }
     }
 

@@ -1,0 +1,13 @@
+#notices{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 30%;
+	margin: 1em;
+	.item1{
+		// background: $green;
+		padding: 1em;
+		color: #fff;
+		@include ani(0, fadeInUp, 0.5s);
+	}
+}

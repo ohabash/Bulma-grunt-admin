@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="list">
+<html lang="en" ng-app="appName">
 <head>
 	<base href="/"/>
 	<!-- <base href="/index.html"> -->
@@ -19,11 +19,14 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body ng-controller="menuCtrl">
+<body ng-controller="main" class="{{mobile}}">
 
 	
 
-
+	<div ng-include="'partials/header.html'"></div>
+	<div id="notices"></div>
+	<ng-view id="view" autoscroll="true"></ng-view>
+	<div ng-include="'partials/footer.html'"></div>
 
 
 
@@ -33,14 +36,37 @@
 
     <!-- libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- firebase -->
+	<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyDa0u4lYq8l-ObsmVrwtZFetZ4PhfCkqZk",
+	    authDomain: "beautydoor-3eb8b.firebaseapp.com",
+	    databaseURL: "https://beautydoor-3eb8b.firebaseio.com",
+	    projectId: "beautydoor-3eb8b",
+	    storageBucket: "",
+	    messagingSenderId: "455762162952"
+	  };
+	  firebase.initializeApp(config);
+	</script>
 
     <!-- angularjs -->
     <script src="assets/js/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-animate.js"></script>
-    <script src="assets/js/ng-app.js"></script>
-    <script src="assets/js/ng-controller.js"></script>
+    	<!-- controllers -->
+    	<script src="assets/js/ng-app.js"></script>
+    	<script src="assets/js/ng-controller.js"></script>
+    	<script src="assets/js/ng-home.js"></script>
+    	<script src="assets/js/ng-home-m.js"></script>
+    	<script src="assets/js/ng-about.js"></script>
+    	<script src="assets/js/ng-auth.js"></script>
+    	<script src="assets/js/ng-account.js"></script>
+    	<script src="assets/js/ng-faq.js"></script>
     <!-- <script src="assets/js/pusher.js"></script> -->
+    <script src="assets/js/notice.js"></script>
     <script src="assets/js/main.js"></script>
 
     <script src="assets/js/modernizr.custom.js"></script>

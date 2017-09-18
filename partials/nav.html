@@ -1,17 +1,18 @@
-<!-- <nav ng-controller="ListenController" class="">
-  <div class="mobile-only mobile-trig">menu</div>
-  <ul class="nav" id="nav">
-    <li class="menu-item about"><a ng-class="{ active0: PAGE('/') }"  href="/">about</a></li>
-    <li class="menu-item contact"><a ng-class="{ active0: PAGE('/contact') }"  href="/contact">contact</a></li>
-    <li class="menu-item contact1"><a ng-class="{ active0: PAGE('/contact1') }"  href="/contact1">404</a></li>
-  </ul>
-</nav> -->
+<a class="navbar-item home" href="/">home</a>
+<a class="navbar-item about" href="/about">about</a>
+<a class="navbar-item faq" href="/faq">faq</a>
+<a class="navbar-item auth" ng-if="!u" href="/login">login</a>
+<a class="navbar-item logout" ng-click="logout();" ng-if="u">Logout</a>
+<a class="navbar-item account" ng-if="u" href="/account">account</a>
+<!-- <a class="navbar-item 404" href="/fdadfds">404 test</a> -->
+<!-- <a class="navbar-item" data_smooth href="#home_2">BOOK NOW</a> -->
 
-
-<nav ng-controller="ListenController" class="navbar navbar-toggleable-md fixed-top main-offset">
-	<ol class="breadcrumbs">
-	  <li class="breadcrumb-item"><a href="#">Home</a></li>
-	  <li class="breadcrumb-item"><a href="#">Library</a></li>
-	  <li class="breadcrumb-item active">Data</li>
-	</ol>
-</nav>
+  <!-- 
+  <ul class="inline navbar-item">
+    <li><a data_smooth href="#whoweare">WHO WE ARE</a></li>
+    <li><a data_smooth href="#services">SERVICES</a></li>
+    <li><a data_smooth href="#steps">HOW IT WORKS</a></li>
+    <li><a data_smooth href="#home_2">STYLES</a></li>
+    <li><a data_smooth href="/faq">FAQ</a></li>
+    <li><a data_smooth href="#home_2">BOOK NOW</a></li>
+  </ul>  -->

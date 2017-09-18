@@ -4,6 +4,7 @@
   "description": "Omar Habash's Portfolio",
   "main": "Gruntfile.js",
   "dependencies": {
+    "connect-modrewrite": "^0.10.1",
     "grunt": "^0.4.5"
   },
   "devDependencies": {

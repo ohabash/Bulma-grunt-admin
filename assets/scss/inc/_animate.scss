@@ -1146,8 +1146,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
 }
 .fadeOut {
-  -webkit-animation-name: fadeOut;
-  animation-name: fadeOut;
+  -webkit-animation-name: fadeOut !important;
+  animation-name: fadeOut !important;
 }
 
 @-webkit-keyframes fadeOutDown {
@@ -1301,8 +1301,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
 }
 .fadeOutRight {
-  -webkit-animation-name: fadeOutRight;
-  animation-name: fadeOutRight;
+  -webkit-animation-name: fadeOutRight !important;
+  animation-name: fadeOutRight !important;
 }
 
 @-webkit-keyframes fadeOutRightBig {
