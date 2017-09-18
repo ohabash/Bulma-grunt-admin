@@ -10,7 +10,7 @@ This is my favorite frontend environment. It's a great start for most simple web
  * Using BULMA grid framwork to create a sidebar admin layout
  * Working login form (put your firebase app data in index.html)
  * bad ass FAQ layout
- * Easy to use notification plugin from any js file `notice('your message','background-color-here')` (set colors in _colors.scss)
+ * Easy to use notification plugin from any js file `notice('your message','background-color-here')`. set colors in _colors.scss.
 
 # prerequisites
 you will need `git-cli` `npm` and `grunt before starting`
