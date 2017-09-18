@@ -1,8 +1,9 @@
-# angularjs-bootstrap4-grunt-bulma
+# angularjs-grunt-bulma-firebase-auth
 
 This is my favorite frontend environment. It's a great start for most simple websites. Includes the following:
 
- * Bootstrap 4 (css/js)
+ * Bulma.css (css/js)
+ * firebase authentication (ready for db use)
  * AngularJS (ngroutes / nganimate / ng-includes)
  * usefull mixins for colors, easing, centering, and more
  * Grunt Tasks for sass compiling / minifying / watch / BrowserSync (live-reload) / server (localhost)
@@ -22,4 +23,3 @@ you will need `git-cli` `npm` and `grunt before starting`
 
 * your browser should pop up serving this content on `http://localhost:3000/`. Try to edit the scss to see it in action
 
-* Click on the close menu button from the bottom of the sidebar to close menu
