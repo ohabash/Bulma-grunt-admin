@@ -1,4 +1,4 @@
-# angularjs-grunt-bulma-firebase-auth
+# angularjs-grunt-bulma-firebase-Authentication
 
 This is my favorite frontend environment. It's a great start for most simple websites. Includes the following:
 
