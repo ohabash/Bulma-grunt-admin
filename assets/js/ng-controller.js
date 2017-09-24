@@ -1,4 +1,5 @@
-var app = angular.module('appName');
+// console.log('ng-controller');
+
 
 
 // ListenContrller
@@ -32,7 +33,7 @@ app.controller('main', function ($scope, Auth,  $timeout, $route, $rootScope, $l
 	Auth.$onAuthStateChanged(function(firebaseUser) {
 		$scope.u = firebaseUser;
 		$rootScope.u = firebaseUser;
-		console.log($scope.u.email);
+		// console.log($scope.u.email);
 		if (firebaseUser) {
 			$location.path('/account');
 			notice("Welcome "+$scope.u.email+"! ", "green")
@@ -78,4 +79,10 @@ app.controller('main', function ($scope, Auth,  $timeout, $route, $rootScope, $l
 
 
 
-
+// controllers
+require('./ng-home.js');
+require('./ng-home-m');
+require('./ng-about.js');
+require('./ng-auth.js');
+require('./ng-account.js');
+require('./ng-faq.js');

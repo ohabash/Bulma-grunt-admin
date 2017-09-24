@@ -1,3 +1,5 @@
+
+
 app.controller('auth', function ($scope, $location, $rootScope, Auth) {
 	
 

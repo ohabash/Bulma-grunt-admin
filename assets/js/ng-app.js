@@ -1,6 +1,17 @@
-var app = angular.module('appName',["ngRoute", "ngAnimate", "firebase"]);
+'use strict';
+var path = require('path');
+import './../bower/angular/angular.min.js';
+import './../bower/angularfire/dist/angularfire.min.js';
+import './../bower/angular-route/angular-route.min.js';
+import './../bower/angular-animate/angular-animate.min.js';
+
+function here(d) {
+	if (!d){ return __dirname; }
+	return path.resolve(__dirname, d);
+}
 
 
+window.app = angular.module('appName',["ngRoute", "firebase"]);
 
 // routes
 app.config(function ($routeProvider, $locationProvider){
@@ -55,3 +66,5 @@ app.factory("Auth", ["$firebaseAuth",
     return $firebaseAuth();
   }
 ]);
+
+require('./ng-controller.js');

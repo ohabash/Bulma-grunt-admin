@@ -1,3 +1,4 @@
+
 app.controller('faq', function ($scope, $timeout, $rootScope, $location) {
 	
 	$scope.get_active();

@@ -1,3 +1,4 @@
+
 app.controller('account', function ($scope, $timeout, $rootScope, $location) {
 	console.log("ng-home.js");
 	
