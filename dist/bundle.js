@@ -70,16 +70,14 @@
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ng_app_js__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__notice_js__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__notice_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__notice_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__main_js__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__main_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__main_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__main_js__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__main_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__main_js__);
 // import './bower_components/jquery/dist/jquery.min.js';
 var $ = __webpack_require__(1);
 window.jQuery = $;
 window.$ = $;
 
-
+// import './notice.js';
 
 
 
@@ -119,6 +117,7 @@ module.exports = __webpack_amd_options__;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__bower_angular_animate_angular_animate_min_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__bower_angular_animate_angular_animate_min_js__);
 
 var path = __webpack_require__(4);
+
 
 
 
@@ -185,6 +184,7 @@ app.factory("Auth", ["$firebaseAuth",
     return $firebaseAuth();
   }
 ]);
+
 
 __webpack_require__(10);
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, "/"))
@@ -1046,7 +1046,7 @@ return e}}}else return d(a)}}]}])})(window,window.angular);
 /***/ (function(module, exports, __webpack_require__) {
 
 // console.log('ng-controller');
-
+__webpack_require__(19);
 
 
 // ListenContrller
@@ -1083,7 +1083,7 @@ app.controller('main', function ($scope, Auth,  $timeout, $route, $rootScope, $l
 		// console.log($scope.u.email);
 		if (firebaseUser) {
 			$location.path('/account');
-			notice("Welcome "+$scope.u.email+"! ", "green")
+			$rootScope.notice("Welcome "+$scope.u.email+"! ", "green")
 			if ($scope.u.email == "dev.beautydoor@gmail.com") {
 				$rootScope.admin = true;
 			}
@@ -1093,7 +1093,7 @@ app.controller('main', function ($scope, Auth,  $timeout, $route, $rootScope, $l
 	// logOut
     $scope.logout = function() {
       console.log("logout()");
-      notice("Goodbye "+$scope.u.displayName+"! Your session is no-more", 'dark');
+      $rootScope.notice("Goodbye "+$scope.u.displayName+"! Your session is no-more", 'dark');
       Auth.$signOut();
       $location.path('/');
     };
@@ -1189,7 +1189,7 @@ app.controller('auth', function ($scope, $location, $rootScope, Auth) {
       Auth.$signInWithEmailAndPassword($scope.email, $scope.password).then(function(firebaseUser) {
           $scope.u = firebaseUser;
           $scope.uid = firebaseUser.uid;
-          addAlert("star", "Welcome "+$scope.u.email, "Session Started. Enjoy.");
+          $rootScope.notice("Welcome "+$scope.u.email, "Session Started. Enjoy.");
           $location.path('/');
           // console.log($scope.u)
         }).catch(function(error) {
@@ -1208,7 +1208,7 @@ app.controller('auth', function ($scope, $location, $rootScope, Auth) {
       Auth.$signInWithPopup("google").then(function(firebaseUser) {
           $scope.u = firebaseUser;
           $scope.uid = firebaseUser.uid;
-          addAlert("star", "Welcome "+firebaseUser.email, "Session Started. Enjoy.");
+          $rootScope.notice("Welcome "+firebaseUser.email, "Session Started. Enjoy.");
           $location.path('/');
           console.log($scope.u);
         }).catch(function(error) {
@@ -1267,88 +1267,7 @@ app.controller('faq', function ($scope, $timeout, $rootScope, $location) {
 });
 
 /***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-var queue = [];
-var busy = false;
-
-// Enqueue
-function notice(m,c) {
-  queue.push({'message': m, 'color': c });
-  if (!busy) {
-    busy = true;
-    fireAlerts(queue);
-  }
-}
-
-// Show
-function fireAlerts(alerts) {
-  var $e = null;
-  var len = alerts.length;
-  $.each(alerts, function(index, value) {
-    // Use IIFE to multiply Wait x Index (http://stackoverflow.com/a/5226335/922522)
-    (function(index, value) {
-      var wait = index * 500 + 1000;
-      var i = index;
-      var s = alerts[i];
-      setTimeout(function() {
-        // Show Alert
-        $e = $("<div class='item1 "+s.color+"-bg'>").html(s.message);
-        $("#notices").append($e);
-        // debug 
-        console.log("notices: "+value);
-        $e.click( function(){
-          $e.remove();
-        })
-        setTimeout(removeAlert, 5500, $e);        
-        // Remove displayed from queue
-        queue.shift();
-        // End of alerts array
-        if (index === len - 1) {
-          busy = false;
-          // Are there more in the queue?
-          if (queue.length > 0) {
-            fireAlerts(queue);
-          }
-        }
-      }, wait);
-    })(index, value);
-  });
-}
-
-// Hide
-function removeAlert($e) {
-  $e.removeClass('fadeInUp').addClass('fadeOutRight');
-  setTimeout(function() {
-    $e.remove();
-  }, 1000);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/***/ }),
+/* 17 */,
 /* 18 */
 /***/ (function(module, exports) {
 
@@ -1430,6 +1349,68 @@ setTimeout(function(){
 
 }, 100);
 
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+app.controller('notice', function ($scope, $location, Auth, $timeout, $route, $rootScope, $location) {
+  var queue = [];
+  var busy = false;
+  $rootScope.notice = function(m,c) {
+
+    // Enqueue
+      queue.push({'message': m, 'color': c });
+      if (!busy) {
+        busy = true;
+        fireAlerts(queue);
+      }
+
+    // Show
+    function fireAlerts(alerts) {
+      var $e = null;
+      var len = alerts.length;
+      $.each(alerts, function(index, value) {
+        // Use IIFE to multiply Wait x Index (http://stackoverflow.com/a/5226335/922522)
+        (function(index, value) {
+          var wait = index * 500 + 1000;
+          var i = index;
+          var s = alerts[i];
+          setTimeout(function() {
+            // Show Alert
+            $e = $("<div class='item1 "+s.color+"'>").html(s.message);
+            $("#notices").append($e);
+            // debug 
+            // console.log("notices: "+value);
+            $e.click( function(){
+              $e.remove();
+            })
+            setTimeout(removeAlert, 5500, $e);        
+            // Remove displayed from queue
+            queue.shift();
+            // End of alerts array
+            if (index === len - 1) {
+              busy = false;
+              // Are there more in the queue?
+              if (queue.length > 0) {
+                fireAlerts(queue);
+              }
+            }
+          }, wait);
+        })(index, value);
+      });
+    }
+
+    // Hide
+    function removeAlert($e) {
+      $e.removeClass('fadeInUp').addClass('fadeOutRight');
+      setTimeout(function() {
+        $e.remove();
+      }, 3000);
+    }
+
+  };
+});
 
 /***/ })
 /******/ ]);

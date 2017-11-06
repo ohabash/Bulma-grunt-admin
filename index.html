@@ -22,11 +22,12 @@
 <body ng-controller="main" class="{{mobile}}">
 
 	
-
+<div class="notice-control" ng-controller="notice">
 	<div ng-include="'partials/header.html'"></div>
 	<div id="notices"></div>
 	<ng-view id="view" autoscroll="true"></ng-view>
 	<div ng-include="'partials/footer.html'"></div>
+</div>
 
 
 

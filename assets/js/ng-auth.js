@@ -16,7 +16,7 @@ app.controller('auth', function ($scope, $location, $rootScope, Auth) {
       Auth.$signInWithEmailAndPassword($scope.email, $scope.password).then(function(firebaseUser) {
           $scope.u = firebaseUser;
           $scope.uid = firebaseUser.uid;
-          addAlert("star", "Welcome "+$scope.u.email, "Session Started. Enjoy.");
+          $rootScope.notice("Welcome "+$scope.u.email, "Session Started. Enjoy.");
           $location.path('/');
           // console.log($scope.u)
         }).catch(function(error) {
@@ -35,7 +35,7 @@ app.controller('auth', function ($scope, $location, $rootScope, Auth) {
       Auth.$signInWithPopup("google").then(function(firebaseUser) {
           $scope.u = firebaseUser;
           $scope.uid = firebaseUser.uid;
-          addAlert("star", "Welcome "+firebaseUser.email, "Session Started. Enjoy.");
+          $rootScope.notice("Welcome "+firebaseUser.email, "Session Started. Enjoy.");
           $location.path('/');
           console.log($scope.u);
         }).catch(function(error) {

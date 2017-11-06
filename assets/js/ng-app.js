@@ -1,5 +1,6 @@
 'use strict';
 var path = require('path');
+
 import './../bower/angular/angular.min.js';
 import './../bower/angularfire/dist/angularfire.min.js';
 import './../bower/angular-route/angular-route.min.js';
@@ -66,5 +67,6 @@ app.factory("Auth", ["$firebaseAuth",
     return $firebaseAuth();
   }
 ]);
+
 
 require('./ng-controller.js');

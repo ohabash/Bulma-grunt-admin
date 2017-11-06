@@ -12733,21 +12733,37 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #notices {
   position: fixed;
   bottom: 0;
-  right: 0;
-  width: 30%;
-  margin: 1em; }
+  left: 0;
+  width: 20em;
+  margin: 1em;
+  z-index: 999999; }
   #notices .item1 {
-    padding: 1em;
-    color: #fff;
+    background: #fff;
+    font-size: 0.75em;
+    padding: 1em 2em;
+    margin-bottom: 5px;
+    color: #333;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.3);
     -webkit-animation-duration: 0.5s;
     animation-duration: 0.5s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-    -webkit-animation-name: fadeInUp;
-    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight;
     animation-delay: 0;
     -webkit-animation-delay: 0;
     -moz-animation-delay: 0;
     -o-animation-delay: 0; }
+  @media (max-width: 678px) {
+    #notices {
+      top: 0;
+      margin: 0;
+      width: 100%;
+      bottom: inherit;
+      display: none; }
+      #notices .item1 {
+        background: #333;
+        color: #fff !important;
+        text-align: center; } }
 
 /*# sourceMappingURL=style.css.map */

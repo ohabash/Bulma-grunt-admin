@@ -1,5 +1,5 @@
 // console.log('ng-controller');
-
+require('./ng-notice.js');
 
 
 // ListenContrller
@@ -36,7 +36,7 @@ app.controller('main', function ($scope, Auth,  $timeout, $route, $rootScope, $l
 		// console.log($scope.u.email);
 		if (firebaseUser) {
 			$location.path('/account');
-			notice("Welcome "+$scope.u.email+"! ", "green")
+			$rootScope.notice("Welcome "+$scope.u.email+"! ", "green")
 			if ($scope.u.email == "dev.beautydoor@gmail.com") {
 				$rootScope.admin = true;
 			}
@@ -46,7 +46,7 @@ app.controller('main', function ($scope, Auth,  $timeout, $route, $rootScope, $l
 	// logOut
     $scope.logout = function() {
       console.log("logout()");
-      notice("Goodbye "+$scope.u.displayName+"! Your session is no-more", 'dark');
+      $rootScope.notice("Goodbye "+$scope.u.displayName+"! Your session is no-more", 'dark');
       Auth.$signOut();
       $location.path('/');
     };
