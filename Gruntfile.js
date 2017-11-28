@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
   // var urlRewrite = require('grunt-connect-rewrite');
   var modRewrite = require('connect-modrewrite');
+  grunt.loadNpmTasks('grunt-run');
   // npm install connect-modrewrite --save
 
 
@@ -8,6 +9,12 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
 
+    // run commands ex: grunt run:webpack
+    run: {
+      webpack: {
+        exec: 'npm run re_build',
+      }
+    },
 
 
     //watch
@@ -16,6 +23,10 @@ module.exports = function(grunt) {
         files: 'assets/scss/**/*.scss',
         tasks: ['sass'],
       },
+      run:{
+        files: 'assets/js/*.js',
+        tasks: ['run:webpack'],
+      }
     },
 
 
@@ -48,7 +59,7 @@ module.exports = function(grunt) {
         bsFiles: {
             src : [
                 'assets/dist/css/*.css',
-                'assets/js/*.js',
+                'dist/*.js',
                 '*/*.html',
                 '*/*/*.html',
                 '*.html'

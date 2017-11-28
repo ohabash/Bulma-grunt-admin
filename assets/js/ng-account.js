@@ -1,6 +1,6 @@
 
 app.controller('account', function ($scope, $timeout, $rootScope, $location) {
-	console.log("ng-home.js");
+	console.log("ng-account.js");
 	
 	$timeout( function(){
 		$scope.get_active();

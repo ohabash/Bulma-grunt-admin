@@ -1046,7 +1046,7 @@ return e}}}else return d(a)}}]}])})(window,window.angular);
 /***/ (function(module, exports, __webpack_require__) {
 
 // console.log('ng-controller');
-__webpack_require__(19);
+__webpack_require__(11);
 
 
 // ListenContrller
@@ -1127,21 +1127,83 @@ app.controller('main', function ($scope, Auth,  $timeout, $route, $rootScope, $l
 
 
 // controllers
-__webpack_require__(11);
 __webpack_require__(12);
 __webpack_require__(13);
 __webpack_require__(14);
 __webpack_require__(15);
 __webpack_require__(16);
+__webpack_require__(17);
 
 /***/ }),
 /* 11 */
 /***/ (function(module, exports) {
 
+app.controller('notice', function ($scope, $location, Auth, $timeout, $route, $rootScope, $location) {
+  var queue = [];
+  var busy = false;
+  $rootScope.notice = function(m,c) {
+
+    // Enqueue
+      queue.push({'message': m, 'color': c });
+      if (!busy) {
+        busy = true;
+        fireAlerts(queue);
+      }
+
+    // Show
+    function fireAlerts(alerts) {
+      var $e = null;
+      var len = alerts.length;
+      $.each(alerts, function(index, value) {
+        // Use IIFE to multiply Wait x Index (http://stackoverflow.com/a/5226335/922522)
+        (function(index, value) {
+          var wait = index * 500 + 1000;
+          var i = index;
+          var s = alerts[i];
+          setTimeout(function() {
+            // Show Alert
+            $e = $("<div class='item1 "+s.color+"'>").html(s.message);
+            $("#notices").append($e);
+            // debug 
+            // console.log("notices: "+value);
+            $e.click( function(){
+              $e.remove();
+            })
+            setTimeout(removeAlert, 5500, $e);        
+            // Remove displayed from queue
+            queue.shift();
+            // End of alerts array
+            if (index === len - 1) {
+              busy = false;
+              // Are there more in the queue?
+              if (queue.length > 0) {
+                fireAlerts(queue);
+              }
+            }
+          }, wait);
+        })(index, value);
+      });
+    }
+
+    // Hide
+    function removeAlert($e) {
+      $e.removeClass('fadeInUp').addClass('fadeOutRight');
+      setTimeout(function() {
+        $e.remove();
+      }, 3000);
+    }
+
+  };
+});
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
 // console.log('ng-home');
 
 app.controller('home', function ($scope, $rootScope, $location) {
-	// console.log("ng-home.js");
+	console.log("ng-home.js tests 4");
 	if($rootScope.isMobile){
 		$location.path('/home-m');
 	}else{
@@ -1150,7 +1212,7 @@ app.controller('home', function ($scope, $rootScope, $location) {
 });
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 
@@ -1159,7 +1221,7 @@ app.controller('home-m', function ($scope, $rootScope, $location) {
 });
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 
@@ -1168,7 +1230,7 @@ app.controller('about', function ($scope, $rootScope, $location) {
 });
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 
@@ -1235,12 +1297,12 @@ app.controller('auth', function ($scope, $location, $rootScope, Auth) {
 });
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 
 app.controller('account', function ($scope, $timeout, $rootScope, $location) {
-	console.log("ng-home.js");
+	console.log("ng-account.js");
 	
 	$timeout( function(){
 		$scope.get_active();
@@ -1248,7 +1310,7 @@ app.controller('account', function ($scope, $timeout, $rootScope, $location) {
 });
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 
@@ -1267,7 +1329,6 @@ app.controller('faq', function ($scope, $timeout, $rootScope, $location) {
 });
 
 /***/ }),
-/* 17 */,
 /* 18 */
 /***/ (function(module, exports) {
 
@@ -1349,68 +1410,6 @@ setTimeout(function(){
 
 }, 100);
 
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports) {
-
-app.controller('notice', function ($scope, $location, Auth, $timeout, $route, $rootScope, $location) {
-  var queue = [];
-  var busy = false;
-  $rootScope.notice = function(m,c) {
-
-    // Enqueue
-      queue.push({'message': m, 'color': c });
-      if (!busy) {
-        busy = true;
-        fireAlerts(queue);
-      }
-
-    // Show
-    function fireAlerts(alerts) {
-      var $e = null;
-      var len = alerts.length;
-      $.each(alerts, function(index, value) {
-        // Use IIFE to multiply Wait x Index (http://stackoverflow.com/a/5226335/922522)
-        (function(index, value) {
-          var wait = index * 500 + 1000;
-          var i = index;
-          var s = alerts[i];
-          setTimeout(function() {
-            // Show Alert
-            $e = $("<div class='item1 "+s.color+"'>").html(s.message);
-            $("#notices").append($e);
-            // debug 
-            // console.log("notices: "+value);
-            $e.click( function(){
-              $e.remove();
-            })
-            setTimeout(removeAlert, 5500, $e);        
-            // Remove displayed from queue
-            queue.shift();
-            // End of alerts array
-            if (index === len - 1) {
-              busy = false;
-              // Are there more in the queue?
-              if (queue.length > 0) {
-                fireAlerts(queue);
-              }
-            }
-          }, wait);
-        })(index, value);
-      });
-    }
-
-    // Hide
-    function removeAlert($e) {
-      $e.removeClass('fadeInUp').addClass('fadeOutRight');
-      setTimeout(function() {
-        $e.remove();
-      }, 3000);
-    }
-
-  };
-});
 
 /***/ })
 /******/ ]);
