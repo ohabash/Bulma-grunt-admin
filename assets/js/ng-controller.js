@@ -51,6 +51,11 @@ app.controller('main', function ($scope, Auth,  $timeout, $route, $rootScope, $l
       $location.path('/');
     };
 
+    // logOut
+    $scope.log = function(x) {
+      console.log(x);
+    };
+
 	//======== various functions below ========//
 	// set mobile states
 	function if_mobile() {

@@ -5,6 +5,7 @@ import './../bower/angular/angular.min.js';
 import './../bower/angularfire/dist/angularfire.min.js';
 import './../bower/angular-route/angular-route.min.js';
 import './../bower/angular-animate/angular-animate.min.js';
+import './../bower/angular-xeditable/dist/js/xeditable.js';
 
 function here(d) {
 	if (!d){ return __dirname; }
@@ -12,9 +13,12 @@ function here(d) {
 }
 
 
-window.app = angular.module('appName',["ngRoute", "firebase"]);
+window.app = angular.module('appName',["ngRoute", "firebase", 'xeditable']);
 
 // routes
+app.run(['editableOptions', function(editableOptions) {
+  // editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+}]);
 app.config(function ($routeProvider, $locationProvider){
 	$routeProvider
 		.when('/', {

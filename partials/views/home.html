@@ -1,7 +1,8 @@
 <div class="main-container " id="page">
 	<div class="container home-container">
-		<h1>Hello from <code>home.html</code></h1>
-		<h1>Hello from <code>home.html</code></h1>
-		<h1>Hello from <code>home.html</code></h1>
+		<li class="" ng-repeat="this1 in campaigns | filter:search | reverse | limitTo:1" >
+			<a href="#" editable-text="this1.adGroupId" ng-model="this1.adGroupId" e-ng-change="campaigns.$save(this1)">{{ this1.adGroupId || "empty" }}</a>
+			<button ng-click="campaigns.$save(this1); log('click')">save</button>
+		</li>
 	</div>
 </div>
