@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appName">
+<head>
+	<base href="/"/>
+	<!-- <base href="/index.html"> -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Omar Habash</title>
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,100,300,700,600' rel='stylesheet' type='text/css'>
+	<link href="assets/dist/css/style.css" rel="stylesheet">
+	<!-- <script src="http://localhost:9000/livereload.js"></script> -->
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body ng-controller="main" class="{{mobile}} {{$bg}}">
+
+	
+<div class="notice-control" ng-controller="notice">
+	<div id="notices"></div>
+	<div class="main-contain container">
+		<!-- #account-menu -->
+		<div id="account-menu">
+			<a href="javascript:void(0)" ng-click="logout();" ng-show="u">Logout</a>
+			<a href="/auth" ng-click="ACTIVE();" ng-hide="u">Register</a>
+			<a ng-click="bg('bg2');">two</a>
+			<a ng-click="bg('bg3');">three</a>
+		</div>
+		<!-- main area -->
+		<div class="columns">
+			<div class="column main-left is-15 ">
+				<ng-include class="clearfix" src="'partials/aside.html'"></ng-include>
+			</div>
+			<div class="column is-25 project-column">
+				<ng-include class="clearfix" src="'partials/project_nav.html'"></ng-include>
+			</div>
+			<div class="column main-right p0 contain-it">
+				<div class="main-right-contain">
+					<div class="column m0 p0">
+						<ng-view class="m0 p0 column view-animate"></ng-view>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+	
+
+
+
+  
+
+
+    <!-- firebase -->
+	<script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyD0BOE888FHGoz04M_jFEyQYv6wAb9-1BM",
+	    authDomain: "portfolio-ca685.firebaseapp.com",
+	    databaseURL: "https://portfolio-ca685.firebaseio.com",
+	    projectId: "portfolio-ca685",
+	    storageBucket: "portfolio-ca685.appspot.com",
+	    messagingSenderId: "856164915936"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+	<script src="dist/bundler.js"></script>
+    <script src="assets/js/modernizr.custom.js"></script>
+
+
+  </body>
+</html>

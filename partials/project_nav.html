@@ -1,0 +1,22 @@
+<!-- projects -->
+<nav id="projects" class="sub pr" ng-controller="project_nav">
+	<div class="inside">
+	    <ul class="sidenav">
+	    	<h3>Projects</h3>
+		  <li ng-repeat="item in projects" class="{{item.$id}}" ng-click="acv_p(item.$id)" ng-if="show(item.active)">
+		  	<a href="/project/{{item.$id}}" ng-click="alertproject(item.name)">
+		  		<i ng-if="admin" class="fa" ng-class="(item.active) ? 'fa-eye' : 'fa-eye-slash'" ng-dblclick="item.active=!item.active;projects.$save(item)"></i>
+		  		{{item.name || 'untitled' | limitTo:25 }}
+		  		<span ng-if="item.name.length > 25">...</span>
+		  		<div class="iCons">
+					<i ng-if="admin" class="fa fa-trash" ng-dblclick="projects.$remove(item)"></i>
+				</div>
+		  	</a>
+		  </li>
+		  <li class="new_project" ng-click="new_project()"><a>
+		  	New Project
+		  	<img src="assets/img/add-list.svg">
+		  </a></li>
+		</ul>
+	</div>
+</nav>

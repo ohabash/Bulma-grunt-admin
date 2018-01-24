@@ -1,0 +1,106 @@
+<!-- <div class="account-contain">
+	<a href="javascript:void(0)" ng-click="logout();" ng-show="u">Logout</a>
+	<a href="/login" ng-click="ACTIVE();" ng-hide="u">Register</a>
+	<a ng-click="bg('bg2');">two</a>
+	<a ng-click="bg('bg3');">three</a>
+	<a href="javascript:void(0)" ng-click="logout();" ng-show="u" class="avatar">
+		<img src="{{u.photoURL}}" alt="" class="img-responsive">
+	</a>
+</div> -->
+
+<div class="container" ng-controller="theMenu" ng-if="mobile">
+	<ul class="main-menu">
+		<li class="sub-menu">
+			<a href="" role="button" class="open-menu"><i class="fa fa-cogs" aria-hidden="true"></i></a>
+		</li>
+		<li class="search-menu">
+			<a href="" role="button" class="open-menu" data-target=".search-nav-bg"><i class="fa fa-search"></i></a>
+		</li>
+		<li class="account-menu">
+			<a href="" role="button" class="open-menu" data-target=".account-nav-bg"><i class="fa fa-user"></i></a>
+		</li>
+		<li class="menu-close">
+			<a href="" role="button" class="close-menu"><i class="fa fa-times"></i></a>
+		</li>
+	</ul>
+	<div class="main-nav-bg sub-nav-el">
+		<a href="" role="button" class="close-sub-nav"><i class="fa fa-times"></i></a>
+		<header>
+			<i class="fa fa-sign-in"></i>
+			<h3>Main Menu</h3>
+		</header>
+		<ul class="main-nav">
+			<li class="form-row"><a href="">Home page</a></li>
+			<li class="form-row"><a href="">About Us</a></li>
+			<li class="form-row"><a href="">Our Holidays</a></li>
+			<li class="form-row"><a href="">Further Page</a></li>
+			<li class="form-row"><a href="">Contact Us</a></li>
+		</ul>
+	</div>
+	<div class="search-nav-bg sub-nav-el">
+		<a href="" role="button" class="close-sub-nav"><i class="fa fa-times"></i></a>
+		<header>
+			<i class="fa fa-search"></i>
+			<h3>Find Your Holiday</h3>
+		</header>
+		<form method="post" action="" class="search-form">
+			<p class="form-row">
+				<label for="location">Location</label>
+				<input type="text" name="location" id="location">
+			</p>
+			<div class="form-row">
+				<label for="day">When do you want to go?</label>
+				<p class="cf">
+					<span class="third">
+						<select name="day" id="day">
+							<option value="1">1</option>
+						</select>
+					</span>
+					<span class="third">
+						<select name="month" id="month">
+							<option value="1">1</option>
+						</select>
+					</span>
+					<span class="third">
+						<select name="year" id="year">
+							<option value="2015">2015</option>
+						</select>
+					</span>
+				</p>
+			</div>
+			<p class="form-row">
+				<label for="duration">How long for?</label>
+				<select name="duration" id="duration">
+					<option value="1">1 day</option>
+				</select>
+			</p>
+			<p class="form-row">
+				<label for="code">Other code</label>
+				<input type="text" name="code" id="code">
+			</p>
+			<p class="form-row">
+				<input type="submit" name="form-submit" value="Submit">
+			</p>
+		</form>
+	</div>
+	<div class="account-nav-bg sub-nav-el">
+		<a href="" role="button" class="close-sub-nav"><i class="fa fa-times"></i></a>
+		<header>
+			<i class="fa fa-user"></i>
+			<h3>Account Login</h3>
+		</header>
+		<form method="post" action="" class="account-form">
+			<p class="form-row">
+				<label for="location">Username or Email Address</label>
+				<input type="text" name="username" id="username">
+			</p>
+			<p class="form-row">
+				<label for="password">Password</label>
+				<input type="password" name="password" id="password">
+			</p>
+			<p class="form-row">
+				<input type="submit" name="form-submit" value="Submit">
+			</p>
+		</form>
+	</div>
+</div>

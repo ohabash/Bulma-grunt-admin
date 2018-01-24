@@ -1,0 +1,30 @@
+
+<div id="project-gallery" class="enter_animation" ng-init="get_gallery()">
+	<!-- <img src="{{project.pics[indx].value}}" alt=""> -->
+	<div class="carousel-container">
+		<!-- navi -->
+		<div class="navi level">
+			<div class="level-left">
+				<a href="/project/{{project_id}}" class="back">
+					Back to Project
+				</a>
+				<a class="trash" ng-if="admin" ng-click="gallery.$remove(gallery[indx])"> <i class="fa fa-trash"></i></a>
+			</div>
+			<div class="level-right">
+				<a ng-click="indx=indx-1" class="level-item p"><i ng-hide="indx==0" class="fa fa-chevron-left"></i></a>
+				<span>{{indx}}/{{total}}</span>
+				<a ng-click="indx=indx+1" class="level-item n"><i ng-hide="indx==total" class="fa fa-chevron-right"></i></a>
+			</div>
+		</div>
+		<!-- img -->
+		<img ng-click="indx=indx+1;rewind()" src="{{gallery[indx].value}}" alt="" class="img-responsive">
+		<div id="ghost"></div>
+		<!-- desc -->
+	</div>
+	<div class="img-desc" ng-init="custom_pad();">
+		<div class="container">
+			<textarea cols="100" rows="5" ng-if="admin" ng-model="gallery[indx].desc" ng-change="gallery.$save(gallery[indx])" placeholder="desc here">{{gallery[indx].desc}}</textarea>
+			<p >{{gallery[indx].desc}}</p>
+		</div>
+	</div>
+</div>

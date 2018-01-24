@@ -1,0 +1,13 @@
+<div class="columns">
+	<div class="column is-3">
+		<img src="{{user.photoURL}}" alt="" />
+	</div>
+	<div class="column">
+    	<p class="dd name">{{user.displayName}}</p>
+    	<p class="dd convo_id hide">{{user.convo_id}}</p>
+    	<p class="dd time">{{last[user.uid].time}}</p>
+    	<!-- <p class="dd preview">{{user.email}}</p> -->
+    	<p class="dd preview1">{{last[user.uid].text}}</p>
+    </div>
+</div>
+<badge ng-if="convo_unRead[u.uid]">{{convo_unRead[u.uid]}}</badge>

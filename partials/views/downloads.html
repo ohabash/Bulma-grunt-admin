@@ -1,0 +1,46 @@
+<style type="text/css">
+	.contain-it{
+		/*background: transparent !important;*/
+		position: relative;
+	}
+</style>
+
+<div class="downloads-content">
+	<div class="centerer1">
+		<div class="columns is-multiline">
+			
+			<!-- if logged in -->
+			<div ng-if="u" class="column is-12 item" ng-repeat="item in downloads">
+				<div class="lck green-bg"><i class="fa fa-check" aria-hidden="true"></i></div>
+				<a href="{{item.url}}" class="columns" ng-click="downloaded(item.name)">
+					<div class="column is-3 img">
+						<img ng-if="item.img" class="img-responsive" src="{{item.img}}" alt="">
+						<i ng-if="item.icon" class="fa fa-{{item.icon}}" aria-hidden="true"></i>
+					</div>
+					<div class="column">
+						<h2>{{item.name}}</h2>
+						<p>Updated: <span class="yellow">{{item.updated}}</span></p>
+						<p>Type: <span class="yellow">{{item.type}}</span></p>
+					</div>
+				</a>
+			</div>
+
+			<!-- locked -->
+			<div ng-if="!u" class="column is-12 item" ng-repeat="item in downloads">
+				<div class="lck"><i class="fa fa-lock" aria-hidden="true"></i></div>
+				<a href="javascript:void(0)" class="columns" ng-click="locked()">
+					<div class="column is-3 img">
+						<img ng-if="item.img" class="img-responsive" src="{{item.img}}" alt="">
+						<i ng-if="item.icon" class="fa fa-{{item.icon}}" aria-hidden="true"></i>
+					</div>
+					<div class="column">
+						<h2>{{item.name}}</h2>
+						<p>Updated: <span class="yellow">{{item.updated}}</span></p>
+						<p>Type: <span class="yellow">{{item.type}}</span></p>
+					</div>
+				</a>
+			</div>
+
+		</div>
+	</div>
+</div>

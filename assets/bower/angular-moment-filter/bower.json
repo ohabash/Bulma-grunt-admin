@@ -1,0 +1,26 @@
+{
+  "name": "angular-moment-filter",
+  "main": "index.js",
+  "version": "0.0.1",
+  "authors": [
+    "dotslash.lu <dotslash.lu@gmail.com>"
+  ],
+  "description": "moment filter for angular.js",
+  "keywords": [
+    "angular",
+    "moment",
+    "filter"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "moment": "~2.8.3",
+    "angular": "~1.3.0"
+  }
+}

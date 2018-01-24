@@ -1,0 +1,65 @@
+<div class="outer-white" id="mchat" ng-init="activate_busy();">
+	
+	<div class="wrapper1">
+	    <div class="container1">
+
+			<!-- left -->
+	        <div class="left">
+	            <div class="top">
+	                <input type="text" />
+	                <a href="javascript:;" class="search"></a>
+	            </div>
+	            <ul class="people" ng-init="getUsers()">
+	            	<!-- item -->
+	            	<!-- {{userOBJ2}} -->
+	                <li class="person" data-chat="{{user.convo_id}}" ng-repeat="user in userOBJ2" ng-click="newConvo(user.convo_id)">
+	                    <img src="https://s13.postimg.org/ih41k9tqr/img1.jpg" alt="" />
+	                    <span class="name">{{user.displayName}}</span>
+	                    <span class="convo_id hide">{{user.convo_id}}</span>
+	                    <span class="time">{{last.time}}</span>
+	                    <span class="preview">{{user.email}}</span>
+	                    <span class="preview">{{last.text}}</span>
+	                </li>
+	            </ul>
+	        </div>
+
+
+			<!-- right -->
+	        <div class="right">
+	            <div class="top"><span>To: <span class="name">Dog Woofson</span></span></div>
+	            <div class="chat active-chat" data-chat="person1">
+	                <div class="conversation-start">
+	                    <span>Today, 6:48 AM</span>
+	                </div>
+	            	
+	            	<!-- item -->
+	            	<div ng-repeat="m in messages_a">
+	                    <p class="muted"><small>
+	                    	<strong>{{m.display}}</strong> | {{m.time | date: 'calendar'}}
+	                    	<i ng-hide="m.seenBy_user" class="red fa fa-eye-slash" aria-hidden="true"></i>
+			    			<i ng-show="m.seenBy_user" class="green fa fa-eye" aria-hidden="true"></i>
+	                    </small></p>
+	                    <input type="text" ng-init="m.seenBy_admin=true; messages_a.$save(m);" value="{{m.seenBy_admin}}" class="hide">
+		                <div class="bubble" ng-class="(m.email=='ohabash') ? 'me' : 'you'" >
+		                    {{m.text}}
+		                </div>
+	                </div>
+	                <!-- <p><em>{{busy_arr[0].$value}}<<===</em></p> -->
+			    	<!-- <p><em>{{busy_arr[1].$value}}<<===</em></p> -->
+	                <div class="busy" ng-show="busy_arr[1].$value"><p><em>user is typing...</em></p></div>
+	                <!-- <p>==>{{m_arr}}<==</p> -->
+
+	            </div>
+	            <form class="write" ng-submit="addMessage_admin();">
+	                <a href="javascript:;" class="write-link attach"></a>
+	                <input type="text" id="msgInput" class="send-input" placeholder="Message" ng-model="newMessageText_admin" ng-change="busy('admin');" />
+	                <a href="javascript:;" class="write-link smiley"></a>
+	                <a href="javascript:;" class="write-link send"></a>
+	            </form>
+	        </div>
+
+
+	    </div>
+	</div>
+
+</div>

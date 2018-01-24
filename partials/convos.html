@@ -1,0 +1,36 @@
+
+
+<!-- convos -->
+<nav id="convos" class="sub pr" ng-controller="convos_nav" ng-init="get_profiles();" ng-if="u">
+	<div class="inside">
+	    <ul class="sidenav">
+
+	    	<!-- admin can see all -->
+			<li
+				ng-if="admin"
+				class="person white"
+				data-chat="{{user.convo_id}}"
+				ng-repeat="user in profiless"
+				ng-click="switch_convo(user)"
+				ng-hide="user.uid == u.uid"
+			>
+			    <div ng-include class="clearfix" src="'partials/convo_item.html'"></div>
+			</li>
+
+			<!-- visitors only talk to omar -->
+			<li
+				ng-repeat="user in profiless | filter:'contactomarnow' | limitTo:1"
+				class="person white"
+				data-chat="{{user.convo_id}}"
+				ng-init="switch_convo(user)"
+				ng-if="!admin"
+			>
+				<div ng-include class="clearfix" src="'partials/convo_item.html'"></div>
+			</li>
+			
+
+		</ul>
+	</div>
+</nav>
+
+

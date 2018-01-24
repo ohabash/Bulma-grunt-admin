@@ -1,0 +1,22 @@
+
+<div id="skills" class="fadeIn dr4 animated">
+		<!-- search -->
+		<div class="search-skills" ng-init="searchField()"><input ng-model="search" ng-change="updateView()" id="searchSkills" placeholder="search"><i class="fa hide fa-times-circle clear-search" aria-hidden="true"></i></div>
+	<div class="columns is-multiline p2em">
+		<!-- ng-repeat skills -->
+		<div class="column skill-item is-2" ng-repeat="skill in skills | filter:search:strict | orderBy:'name'" ng-dblclick="skills.$remove(skill)">
+			<div class="img-contain">
+				<img editable-text="skill.img" e-ng-change="trigger_changes1(true)" ng-model="skill.img" src="{{skill.img}}" alt="" class="img-responsive">
+			</div>
+			<div class="name-contain">
+				<p class="skill-name" editable-text="skill.name" e-ng-change="trigger_changes1(true)" ng-model="skill.name" onaftersave="skills.$save(skill);">{{skill.name || 'untitled'}}</p>
+			</div>
+		</div>
+		<!-- new skill -->
+		<div class="column skill-item is-2 new_skill" ng-click="new_skill()">
+			<a><i class="fa fa-plus"></i></a>
+		</div>
+	</div>
+</div>
+<!-- new_skill(skill) -->
+

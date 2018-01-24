@@ -1,0 +1,107 @@
+<style type="text/css"> .project-column{display:block;}
+[data-path="x"]{
+	background: #FF4633 !important;
+	color: #fff;
+}
+</style>
+
+<div class="enter_animation fi" ng-init="a(); acv_p(p); get_project(p); get_dropzone();" >
+	<div class=" view-container project-container">
+		<div class="p-head columns">
+			<div class="edit-menu">
+				<!-- <button class="button save" ng-if="changes" ng-click="projects.$save(project); trigger_changes(false)">save</button> -->
+				<!-- <button class="button save edit" ng-click="projects.$save(project); log('click')">edit</button> -->
+			</div>
+			<div class="column title-column">
+				<h1 editable-text="project.name" e-ng-change="trigger_changes(true)" ng-model="project.name" onaftersave="projects.$save(project);">{{ project.name || "empty" }}</h1>
+				<p class="desc taj" editable-textarea="project.desc" buttons="yes" e-ng-change="trigger_changes(true)" onaftersave="projects.$save(project);"  ng-model="project.desc">{{project.desc || 'Details Coming Soon...'}}</p>
+				<p 
+					class="date" 
+					data-tooltip="Last Updated by Omar" 
+					data-placement="bottom"
+					editable-text="project.last_modified"
+					onaftersave="projects.$save(project);"
+					e-ng-change="trigger_changes(true)" 
+					ng-model="project.last_modified">
+						Last Updated: {{project.last_modified || 'last last_modified date'}}
+				</p>
+				<!-- <p class="date">Last Updated: {{project.last_modified || 'last last_modified date'}}</p> -->
+			</div>
+			<div class="column tag-column">
+				<div class="taggs">
+					<!-- <h2>Tech / Skills Used</h2> -->
+					<span class="tag" ng-repeat="skill in project.skills">
+					{{skill.value}}</span>
+					<form ng-if="admin" class="dib" ng-submit="project.skills[slug(skill_val)].value=skill_val;projects.$save(project);skill_val=''">
+						<input type="text" class="new_tag minimal" ng-model="skill_val" placeholder="new skill...">
+					</form>
+				</div>
+				<br>
+				<div class="links">
+					<!-- <h2 class="pt">Links</h2> -->
+					<a ng-click="slack_visited(link.value)" class="url" ng-repeat="link in project.links" target="_blank" href="{{link.value}}">{{link.value | limitTo:30 }}<span ng-if="link.value.length > 30">...</span></a>
+					<form ng-if="admin" class="dib" ng-submit="project.links[slug(link_val)].value=link_val;projects.$save(project);link_val=''">
+						<input type="url" class="new_link minimal" ng-model="link_val" placeholder="new link...">
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="p-body columns">
+			<div class="column gallery-col">
+				<!-- <h2>Gallery</h2> -->
+				<form ng-if="admin" class="dropzone" id="upload"> </form>
+				<div class="p-gallery is-multiline">
+					<div class="columns" ng-repeat="pic in project.pics">
+						<a class="column" href="gallery/{{project.$id}}/{{$index}}">
+							<div class="overlay"><i class="fa fa-search"></i></div>
+							<img src="{{pic.value}}">
+						</a>
+						<div class="column">
+							<p
+								class="desc mono"
+								editable-textarea="pic.desc"
+								buttons="yes"
+								e-ng-change="trigger_changes(true)"
+								ng-model="pic.desc"
+								onaftersave="projects.$save(project);"
+							>{{pic.desc | limitTo:200 }}</p>
+							<a href="gallery/{{project.$id}}/{{$index}}" class="more" ng-if="pic.desc.length > 200">read more</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="column tech-col" ng-if="OFF">
+				<div class="logon">
+					<h2 class="pt">Login Instructions</h2>
+					<div class="" ng-repeat="note in project.notes">
+						<strong editable-text="note.type" e-ng-change="trigger_changes(true)" ng-model="note.type" onaftersave="projects.$save(project);">{{note.type || 'empty'}}:</strong>&ensp;
+						<a>{{note.value}}</a>
+					</div>
+					<form class="dib" ng-submit="new_list_itm(project,'note')">
+						<input type="text" class="new_note minimal" ng-model="new_note_name" placeholder="new note...">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
