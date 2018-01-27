@@ -35,7 +35,6 @@ app.controller('auth', function ($scope, $location, $rootScope, Auth) {
       Auth.$signInWithPopup("google").then(function(firebaseUser) {
           $scope.u = firebaseUser;
           $scope.uid = firebaseUser.uid;
-          $rootScope.notice("Welcome "+firebaseUser.email, "Session Started. Enjoy.");
           $location.path('/');
           console.log($scope.u);
         }).catch(function(error) {
@@ -45,17 +44,6 @@ app.controller('auth', function ($scope, $location, $rootScope, Auth) {
     };
 
 
-    // createUser
- //    $scope.createUser = function() {
-	// 	var ref = new Firebase("https://beautydoor-3eb8b.firebaseio.com");
-	// 	ref.authWithOAuthPopup("google", function(error, authData) {
-	// 	  if (error) {
-	// 	    console.log("Login Failed!", error);
-	// 	  } else {
-	// 	    console.log("Authenticated successfully with payload:", authData);
-	// 	  }
-	// 	});
-	// };
 
 
 

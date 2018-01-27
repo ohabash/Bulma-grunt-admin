@@ -1,7 +1,7 @@
 // console.log('ng-home');
 
 app.controller('home', function ($scope, $rootScope, $location, $firebaseObject, $firebaseArray, $timeout) {
-	console.log("ng-home.js");
+	console.log("ng-home.js11");
 	if($rootScope.isMobile){
 		$location.path('/home-m');
 	}else{

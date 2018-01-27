@@ -31,14 +31,16 @@ app.controller('main', function ($scope, Auth,  $timeout, $route, $rootScope, $l
 
 	// auth status
 	Auth.$onAuthStateChanged(function(firebaseUser) {
-		$scope.u = firebaseUser;
-		$rootScope.u = firebaseUser;
-		// console.log($scope.u.email);
+		$scope.u = firebase.auth().currentUser;
+		$rootScope.u = firebase.auth().currentUser;
+		console.log('current user: ',$scope.u);
 		if (firebaseUser) {
-			$location.path('/account');
-			$rootScope.notice("Welcome "+$scope.u.email+"! ", "green")
-			if ($scope.u.email == "dev.beautydoor@gmail.com") {
+			$rootScope.notice("welcome "+$scope.u.displayName);
+			if ($scope.u.email == "contactomarnow@gmail.com") {
+				$rootScope.notice("You are an admin");
 				$rootScope.admin = true;
+			}else{
+				$rootScope.slack($scope.u.displayName+' logged in at OH.com.');
 			}
 		} else {}
 	});

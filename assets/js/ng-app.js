@@ -6,6 +6,7 @@ import './../bower/angularfire/dist/angularfire.min.js';
 import './../bower/angular-route/angular-route.min.js';
 import './../bower/angular-animate/angular-animate.min.js';
 import './../bower/angular-xeditable/dist/js/xeditable.js';
+// import './firebase-config.js';
 
 function here(d) {
 	if (!d){ return __dirname; }
@@ -14,6 +15,7 @@ function here(d) {
 
 
 window.app = angular.module('appName',["ngRoute", "firebase", 'xeditable']);
+var ff = require('./firebase-config.js');
 
 // routes
 app.run(['editableOptions', function(editableOptions) {
